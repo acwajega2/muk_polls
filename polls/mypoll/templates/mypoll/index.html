@@ -1,0 +1,19 @@
+{% extends 'mypoll/layout.html'%}
+
+{% block content%}
+  <h3 class="center-align red lighten-3">{{title}}</h3>
+{% if data %}
+<ul class="collection">
+    {% for question in data %}
+
+    <li class="collection-item"><a href="{% url 'mypoll:detail' question.id%}">{{question.question_text}}</a></li>
+  
+    {% endfor %}
+
+
+</ul>
+{% else %}
+ <p>No polls are available</p>
+{% endif %}
+  
+{% endblock %} 
